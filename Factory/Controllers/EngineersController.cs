@@ -30,6 +30,10 @@ namespace Factory.Controllers
     [HttpPost]
     public ActionResult Create(Engineer engineer)
     {
+      if (!ModelState.IsValid)
+      {
+        return View(engineer);
+      }
       _db.Engineers.Add(engineer);
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -53,6 +57,10 @@ namespace Factory.Controllers
     [HttpPost]
     public ActionResult Edit(Engineer engineer)
     {
+      if (!ModelState.IsValid)
+      {
+        return View(engineer);
+      }
       _db.Engineers.Update(engineer);
       _db.SaveChanges();
       return RedirectToAction("Index");
