@@ -7,7 +7,7 @@ namespace Factory.Models
   {
     public int MachineId { get; set; }
     [Required(ErrorMessage = "Please enter a valid name.")]
-    public int Name { get; set; }
+    public string Name { get; set; }
     public List<EngineerMachine> JoinEntities { get; }
   }
 }
