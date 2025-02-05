@@ -2,7 +2,48 @@
   Layout = "_Layout";
 }
 
-<h1>Factory</h1>
+@using Factory.Models;
 
-<p>@Html.ActionLink("See all engineers", "Index", "Engineers")</p>
-<p>@Html.ActionLink("See all machines", "Index", "Machines")</p>
+<div class="container">
+  <div class="row">
+    <h1 class="text-center my-3">Factory</h1>
+    <div class="col-md-4">
+      <div id="engineers-wrapper" class="border rounded p-2">
+        <h4>Engineers</h4>
+        @if (Model["engineers"].Length == 0)
+        {
+          <p>No engineers have been added yet.</p>
+        }
+        <ul>
+          @foreach (Engineer engineer in Model["engineers"])
+          {
+            <li>@Html.ActionLink(engineer.Name, "Details", "Engineers", new { id = engineer.EngineerId })</li>
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div id="machines-wrapper" class="border rounded p-2">
+        <h4>Machines</h4>
+        @if (Model["machines"].Length == 0)
+        {
+          <p>No machines have been added yet.</p>
+        }
+        <ul>
+          @foreach (Machine machine in Model["machines"])
+          {
+            <li>@Html.ActionLink(machine.Name, "Details", "Machines", new { id = machine.MachineId })</li>
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div id="links-wrapper" class="border rounded p-2">
+        <p>@Html.ActionLink("See all engineers", "Index", "Engineers")</p>
+        <p>@Html.ActionLink("See all machines", "Index", "Machines")</p>
+      </div>
+    </div>
+  </div>
+</div>
