@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
 using Factory.Models;
 
 namespace Factory.Controllers
@@ -14,7 +16,12 @@ namespace Factory.Controllers
 
     public ActionResult Index()
     {
-      return View();
+      Engineer[] engineers = _db.Engineers.ToArray();
+      Machine[] machines = _db.Machines.ToArray();
+      Dictionary<string,object[]> model = new Dictionary<string, object[]>();
+      model.Add("engineers", engineers);
+      model.Add("machines", machines);
+      return View(model);
     }
   }
 }
