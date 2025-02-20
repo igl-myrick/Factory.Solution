@@ -36,11 +36,13 @@ _3: You will need to create an `appsettings.json` file within the `Factory` fold
 
 _Insert your own MySQL username in place of [YOUR-USER-HERE], MySQL password in place of [YOUR-PASSWORD-HERE], and the name of your database in place of [YOUR-DB-NAME]._
 
-_4: Next, run `dotnet build` in the command line to build the program._
+_4: Once the `appsettings.json` file has been created, run the command `dotnet ef database update` in your terminal to create the database._
 
-_5: Once the program is built, run `dotnet run` to start the program._
+_5: Next, run `dotnet build` in the command line to build the program._
 
-_6: When the program is running, navigate to `https://localhost:5001` to view and use the website._
+_6: Once the program is built, run `dotnet run` to start the program._
+
+_7: When the program is running, navigate to `https://localhost:5001` to view and use the website._
 
 ## Known Bugs
 
